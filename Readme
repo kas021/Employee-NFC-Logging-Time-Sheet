@@ -54,13 +54,16 @@ Folder Structure (make sure this is exactly right):
 
 Employee-NFC-Logging-Time-Sheet/
 ├── audio/
-│ ├── checkin/ → contains Checkedin.mp3
-│ ├── checkout/ → contains Checkedout.mp3
-│ └── error/ → contains error.mp3
+│   ├── checkin/      → contains Checkedin.mp3
+│   ├── checkout/     → contains Checkedout.mp3
+│   └── error/        → contains error.mp3
 ├── main.py
 ├── credentials.json
 
-You can change the audio files, but the names and folder structure must match exactly.
+You can change the audio files, but the names and folder paths must match exactly in main.py.
+
+Example in code:
+os.system("mpg123 audio/checkin/Checkedin.mp3")
 ---------------------------
 Running the Program:
 
@@ -73,7 +76,7 @@ Play a sound to confirm action
 Print UID, employee name, action, and timestamp in the terminal
 Send the log to your Google Sheet
 ---------------------------
-🧯 Troubleshooting:
+ Troubleshooting:
 Problem.Cause.Fix
 No such file or directory: error.mp3	Incorrect path or filename	Double-check spelling/capitalisation of the .mp3 files
 NFC card scans but no audio	Missing mpg123 or wrong sound path	Install mpg123 or fix audio file location
