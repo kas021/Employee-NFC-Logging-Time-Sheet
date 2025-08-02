@@ -73,11 +73,25 @@ Play a sound to confirm action
 Print UID, employee name, action, and timestamp in the terminal
 Send the log to your Google Sheet
 ---------------------------
+🧯 Troubleshooting:
+Problem.Cause.Fix
+No such file or directory: error.mp3	Incorrect path or filename	Double-check spelling/capitalisation of the .mp3 files
+NFC card scans but no audio	Missing mpg123 or wrong sound path	Install mpg123 or fix audio file location
+Unknown card every time	UID not in Employees tab	Add UID + employee name to your Google Sheet
+Google Sheet not updating	Credentials not shared properly	Share the sheet with the email from credentials.json
+oauth2client errors	JSON file is missing or misnamed	Make sure it's named credentials.json and is valid
+Nothing happens on scan	NFC reader not detected	Run sudo pcsc_scan to see if it's connected
+Audio doesn’t play even though file is there	Wrong format or broken MP3	Test your MP3 manually: mpg123 audio/checkin/Checkedin.mp3
+Crashes when scanning multiple times
 
-Troubleshooting:
-If you get No such file or directory, check your MP3 paths and names.
-If the sheet doesn’t update, make sure you’ve shared it properly with the correct service account email.
-To test if the NFC reader is working, run: sudo pcsc_scan
+---------------------------
+Extra Tips
+Auto-run on boot:
+Use crontab -e and add this at the bottom: @reboot python3 /home/pi/Employee-NFC-Logging-Time-Sheet/main.py
+Make sure to replace /home/pi/... with your actual path.
+
+No speakers?
+Comment out or remove the os.system("mpg123 ...") lines to avoid audio errors.
 
 ---------------------------
 
