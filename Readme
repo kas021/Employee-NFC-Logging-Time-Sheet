@@ -21,7 +21,7 @@ An ACR122U card reader and Raspberry Pi are used in this straightforward Python-
 ### 1. Clone This Repo
 
 ```bash
-git clone https://github.com/your-username/Employee-NFC-Logging-Time-Sheet.git
+git clone https://github.com/kas021/Employee-NFC-Logging-Time-Sheet
 cd Employee-NFC-Logging-Time-Sheet
 
 ---------------------------
